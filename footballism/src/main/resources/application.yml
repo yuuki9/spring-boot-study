@@ -1,0 +1,39 @@
+server:
+  port: 38081
+  servlet:
+    context-path: /football
+
+# JPA Properties
+spring:
+  jpa: 
+    properties:
+      hibernate: 
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    generate-ddl: false
+  servlet:
+    multipart: 
+      file-size-threshold: 1MB
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://1.234.82.19:5432/footballism
+    username: footballism
+    password: foot1q2w3e4r!$
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    prefix: classpath:templates/
+    suffix: .html
+  web: #exception 404
+    resources:
+      add-mappings: false
+ #2.6이상 spring boot에서 swagger3.0 이상 스웨거 사용 시 에러 해결   
+  mvc:
+    throw-exception-if-no-handler-found: true #exception 404
+    pathmatch:
+      matching-strategy: ant-path-matcher
