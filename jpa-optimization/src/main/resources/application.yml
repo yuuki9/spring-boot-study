@@ -1,0 +1,29 @@
+server:
+  port: 8804
+
+# JPA Properties
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    database: postgresql
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://121.78.158.27:5432/vaiv_duplanet
+    username: postgres
+    password: egis0700
+  web:
+    resources:
+      static-locations: classpath:/static/
+      add-mappings: true
+  #2.6?? spring boot?? swagger3.0 ?? ??? ?? ? ?? ??
+  mvc:
+    throw-exception-if-no-handler-found: true #exception 404
+    static-path-pattern: /static/**
+    pathmatch:
+      matching-strategy: ant-path-matcher
