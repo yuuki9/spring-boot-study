@@ -1,30 +1,30 @@
-package com.study.app.domain;
+package com.study.app.domain.delivery;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.study.app.domain.delivery.Address;
 import com.study.app.domain.order.Orders;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Member {
-
+public class Delivery {
     @Id
     @GeneratedValue
-    @Column(name = "member_id")
+    @Column(name = "delivery_id")
     private Long id;
-    private String name;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "delivery", fetch = FetchType.LAZY)
+    private Orders orders;
+
     @Embedded
     private Address address;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "member")
-    private List<Orders> orders = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
+
 }
