@@ -16,4 +16,5 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/yuuki
     username: postgres
-    password: admin
+    ##password: admin
+    password: postgres

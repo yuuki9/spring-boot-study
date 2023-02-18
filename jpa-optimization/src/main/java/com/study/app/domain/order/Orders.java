@@ -1,5 +1,6 @@
 package com.study.app.domain.order;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.study.app.domain.Member;
 import com.study.app.domain.delivery.Delivery;
 import lombok.AccessLevel;
