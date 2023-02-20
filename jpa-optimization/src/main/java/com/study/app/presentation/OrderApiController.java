@@ -22,12 +22,6 @@ public class OrderApiController {
     @GetMapping("/api/v1/orders")
     public List<Orders> ordersV1() {
         List<Orders> all = orderRepository.findAll();
-        for (Orders orders : all) { // Lazy 강제 초기화
-            orders.getMember().getName();
-            orders.getDelivery().getAddress();
-            orders.getOrderItems().stream()
-                    .forEach(o -> o.getItem().getName());
-        }
         return all;
     }
 }
